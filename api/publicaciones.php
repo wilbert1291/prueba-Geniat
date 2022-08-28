@@ -1,7 +1,5 @@
 <?php
-    $routesArray = explode("/", $_SERVER["REQUEST_URI"]);
-    $routesArray = array_filter($routesArray);
-
+    include_once '../config/rutaServidor.php';
     include_once '../config/genericResponse.php';
     include_once '../config/validations.php';
     
@@ -20,7 +18,7 @@
 
         switch ($Request_Method) {
             case 'GET':
-                switch ($routesArray[2]) {
+                switch ($functionEjecutar) {
                     case 'Posts':
                         $json = $api->consultarPublicaciones();
                         break;
@@ -44,7 +42,7 @@
                 break; 
 
             case 'POST':
-                switch ($routesArray[2]) {
+                switch ($functionEjecutar) {
                     case 'createPost':
                         $titulo = (isset($_POST['titulo']) ? $_POST['titulo'] : "");
                         $descripcion = (isset($_POST['descripcion']) ? $_POST['descripcion'] : "");
@@ -67,7 +65,7 @@
                 break;
 
             case 'PUT':
-                switch ($routesArray[2]) {
+                switch ($functionEjecutar) {
                     case 'updatePost':
                         $datos = json_decode(file_get_contents('php://input'));
                         
@@ -97,7 +95,7 @@
                 break;
 
             case 'DELETE':
-                switch ($routesArray[2]) {
+                switch ($functionEjecutar) {
                     case 'deletePost':
                         $idPublicacion = (isset($_GET['idPublicacion']) ? $_GET['idPublicacion'] : "");
                         

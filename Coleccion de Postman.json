@@ -1,0 +1,285 @@
+{
+	"info": {
+		"_postman_id": "66e7e889-1b4d-49d2-a6a4-d439a3fba3bb",
+		"name": "Prueba Geniat",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15614562"
+	},
+	"item": [
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Consultar todos los usuarios",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost/prueba-Geniat/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"prueba-Geniat",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar usuario por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost/prueba-Geniat/user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"prueba-Geniat",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar Usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nombre",
+									"value": "Wilbert Eduardo",
+									"type": "text"
+								},
+								{
+									"key": "apellido",
+									"value": "Villegas Gutierrez",
+									"type": "text"
+								},
+								{
+									"key": "correo",
+									"value": "wilbert_1291@live.com.mx",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "rol",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/prueba-Geniat/addUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"prueba-Geniat",
+								"addUser"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Iniciar sesión",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "correo",
+									"value": "wilbert1291@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/prueba-Geniat/iniciar_sesion",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"prueba-Geniat",
+								"iniciar_sesion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cerrar sesión",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/prueba-Geniat/cerrar_sesion",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"prueba-Geniat",
+								"cerrar_sesion"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Publicaciones",
+			"item": [
+				{
+					"name": "Crear publicacion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "titulo",
+									"value": "Hola mundo 2",
+									"type": "text"
+								},
+								{
+									"key": "descripcion",
+									"value": "Descripción 2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/prueba-Geniat/createPost",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"prueba-Geniat",
+								"createPost"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar publicacion",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n    {\r\n        \"idPublicacion\": \"1\",\r\n        \"titulo\": \"Hola mundo actualizado\",\r\n        \"descripcion\": \"Descripcion actualizada\"\r\n    }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/prueba-Geniat/updatePost",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"prueba-Geniat",
+								"updatePost"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar publicacion (logico)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost/prueba-Geniat/deletePost/2",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"prueba-Geniat",
+								"deletePost",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar Publicaciones",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/prueba-Geniat/Posts",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"prueba-Geniat",
+								"Posts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

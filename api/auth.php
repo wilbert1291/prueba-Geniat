@@ -1,7 +1,5 @@
 <?php
-    $routesArray = explode("/", $_SERVER["REQUEST_URI"]);
-    $routesArray = array_filter($routesArray);
-
+    include_once '../config/rutaServidor.php';
     include_once '../config/genericResponse.php';
     include_once '../config/validations.php';
     include_once '../config/jwt.php';
@@ -21,7 +19,7 @@
 
         switch ($Request_Method) {
             case 'GET':
-                switch ($routesArray[2]) {
+                switch ($functionEjecutar) {
                     case "cerrar_sesion":
                         $json = $api->cerrarSesion();
                         break;
@@ -34,7 +32,7 @@
                 break; 
 
             case 'POST':
-                switch ($routesArray[2]) {
+                switch ($functionEjecutar) {
                     case 'iniciar_sesion':
                         $correo = (isset($_POST['correo']) ? $_POST['correo'] : "");
                         $password = (isset($_POST['password']) ? $_POST['password'] : "");

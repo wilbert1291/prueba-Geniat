@@ -1,7 +1,5 @@
 <?php
-    $routesArray = explode("/", $_SERVER["REQUEST_URI"]);
-    $routesArray = array_filter($routesArray);
-    
+    include_once '../config/rutaServidor.php';
     include_once '../config/genericResponse.php';
     include_once '../config/validations.php';
 
@@ -19,7 +17,7 @@
         switch ($_SERVER['REQUEST_METHOD']) {
             case 'GET':
                 
-                switch ($routesArray[2]) {
+                switch ($functionEjecutar) {
                     case 'users':
                         $json = $api->obtenerTodosLosUsuarios();
                         break;
@@ -43,7 +41,7 @@
                 break;
             
             case 'POST':
-                switch ($routesArray[2]) {
+                switch ($functionEjecutar) {
                     case 'addUser':
                         $nombre = (isset($_POST['nombre']) ? $_POST['nombre'] : "");
                         $apellido = (isset($_POST['apellido']) ? $_POST['apellido'] : "");
