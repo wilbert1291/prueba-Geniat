@@ -1,0 +1,20 @@
+RewriteEngine on
+
+RewriteCond %{SCRIPT_FILENAME} !-d  
+RewriteCond %{SCRIPT_FILENAME} !-f  
+
+#Auth
+Rewriterule ^iniciar_sesion$ api/auth.php [L]
+Rewriterule ^cerrar_sesion$ api/auth.php [L]
+
+#Usuario
+Rewriterule ^users$ api/usuarios.php [L]
+Rewriterule ^user/([0-9]+)$ api/usuarios.php?id=$1 [L]
+Rewriterule ^addUser$ api/usuarios.php [L]
+
+#Publicaciones
+Rewriterule ^createPost$ api/publicaciones.php [L]
+Rewriterule ^updatePost$ api/publicaciones.php [L]
+Rewriterule ^deletePost/([0-9]+)$ api/publicaciones.php?idPublicacion=$1 [L]
+Rewriterule ^Posts$ api/publicaciones.php [L]
+Rewriterule ^Post/([0-9]+)$ api/publicaciones.php?idPublicacion=$1 [L]
